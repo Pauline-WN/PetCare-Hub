@@ -16,7 +16,6 @@ Project Structure
 
 Here's an overview of the project structure:
 
-bash
 
 Copy code
 
@@ -47,24 +46,21 @@ How to Run the Project
 
 1.  **Install Dependencies**: Make sure you have [Pipenv](https://pipenv.pypa.io/en/latest/) installed on your machine.
 
-    bash
-
+   
     Copy code
 
     `pipenv install`
 
 2.  **Activate the Virtual Environment**:
 
-    bash
-
+   
     Copy code
 
     `pipenv shell`
 
 3.  **Run the CLI Application**:
 
-    bash
-
+  
     Copy code
 
     `python lib/cli.py`
@@ -96,7 +92,6 @@ After running the application, you will be presented with a menu that allows you
 
 ### Example Menu:
 
-bash
 
 Copy code
 
