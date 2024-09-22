@@ -1,5 +1,5 @@
 def init_db():
-    # Initialize the database schema
+    # Initializing the database schema
     print("Database initialized.")
 
 def menu():

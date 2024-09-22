@@ -16,6 +16,7 @@ Project Structure
 
 Here's an overview of the project structure:
 
+csharp
 
 Copy code
 
@@ -23,6 +24,7 @@ Copy code
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
+├── alembic.ini
 └── lib/
     ├── models/
     │   ├── __init__.py
@@ -40,30 +42,57 @@ Copy code
 -   **lib/database.py**: Sets up the database connection and initializes the tables for storing information.
 -   **lib/models/**: Contains the database models for pets, owners, care schedules, and vet visits.
 -   **lib/helpers.py**: Helper functions to handle common tasks like displaying menus and validating user input.
+-   **alembic.ini**: Configuration file for managing database migrations with Alembic.
 
 How to Run the Project
 ----------------------
 
 1.  **Install Dependencies**: Make sure you have [Pipenv](https://pipenv.pypa.io/en/latest/) installed on your machine.
 
-   
     Copy code
 
     `pipenv install`
 
 2.  **Activate the Virtual Environment**:
 
-   
     Copy code
 
     `pipenv shell`
 
 3.  **Run the CLI Application**:
 
-  
     Copy code
 
     `python lib/cli.py`
+
+Database Management
+-------------------
+
+### Creating or Resetting the Database
+
+You can create or reset the database using Alembic migrations or the `populate_db.py` script.
+
+1.  **Using Alembic Migrations**:
+
+    -   Initialize the Alembic environment if you haven't already:
+
+        Copy code
+
+        `alembic init alembic`
+
+    -   Run the migrations:
+
+        Copy code
+
+        `alembic upgrade head`
+
+2.  **Using the Populate Script**:
+
+    -   Run the `populate_db.py` script to populate the database with initial data:
+
+        Copy code
+
+        `python populate_db.py`
 
 Models Overview
 ---------------
@@ -92,8 +121,8 @@ After running the application, you will be presented with a menu that allows you
 
 ### Example Menu:
 
+markdown
 
-Copy code
 
 `PetCare Hub Menu:
 1. Add Owner

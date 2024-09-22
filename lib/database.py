@@ -2,15 +2,22 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-#creating an engine to connect to the database
-DATABASE_URL = "sqlite:///petcarehub.db"
-engine = create_engine(DATABASE_URL)
-# creating a workspace whre we can interact with the database.
-Session = sessionmaker(bind=engine) 
+# Define the SQLite database URL
+SQLALCHEMY_DATABASE_URL = "sqlite:///./petcare.db"
 
-#the base class for the database models which helps in creating tables.
-Base = declarative_base() 
+# Create the SQLAlchemy engine
+engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 
-#initializing the database which creates all the tables defined in the models.
+# Create a configured "SessionLocal" class
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Base class for the models
+Base = declarative_base()
+
+# Function to create database tables
 def init_db():
-    Base.metadata.create_all(engine)
+    import lib.models.owner
+    import lib.models.pet
+    import lib.models.care_schedule
+    import lib.models.vet_visit
+    Base.metadata.create_all(bind=engine)
